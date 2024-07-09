@@ -1,0 +1,16 @@
+footer {
+    position: fixed; /* Fixer le footer en bas de la page */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .footer-text {
+    flex: 1; /* Pousser les liens vers la droite */
+  }
+  
+  .footer-links {
+    display: flex; /* Aligner les liens horizontalement */
+    gap: 1rem; /* Espace entre les liens */
+  }
+  

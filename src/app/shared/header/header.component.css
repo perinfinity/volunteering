@@ -1,0 +1,47 @@
+.logo-link {
+    text-decoration: none; /* Supprimer le soulignement du lien */
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .spacer {
+    flex: 1; /* Prend tout l'espace disponible entre le logo et les boutons */
+  }
+  
+  .menu-buttons {
+    display: flex; /* Aligner les boutons horizontalement */
+    gap: 1rem; /* Espace entre les boutons */
+  }
+  
+  /* Responsive pour les écrans plus petits */
+  @media (max-width: 600px) {
+    .menu-buttons {
+      flex-direction: column; /* Empiler les boutons verticalement */
+      align-items: center; /* Centrer les boutons */
+    }
+  
+    .spacer {
+      display: none; /* Masquer le spacer */
+    }
+  
+    .logo {
+      margin-bottom: 1rem; /* Ajouter de l'espace sous le logo */
+    }
+  }
+  
+
+mat-toolbar-row {
+    display: flex;
+    justify-content: space-between; /* Aligner les éléments à chaque extrémité */
+    align-items: center; /* Centrer verticalement les éléments */
+  }
+  
+  .spacer {
+    display: none; /* Masquer le spacer, plus besoin avec justify-content: space-between */
+  }
+  
+  /* ... (styles responsive et autres) ... */
+  

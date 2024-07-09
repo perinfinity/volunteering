@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a href="/" class="logo-link"> 
+      <span class="logo">Je Suis Utile</span>
+    </a>
+    <div class="spacer"></div> 
+    <div class="menu-buttons">
+      <a href="/volunteering/opportunities" mat-button>
+        <mat-icon>search</mat-icon> Trouver une opportunité</a>
+      <a href="/register/organisation" mat-button>
+        <mat-icon>volunteer_activism</mat-icon>Publier une opportunité</a>
+      <button mat-button [matMenuTriggerFor]="menu">
+        Mon compte <mat-icon>person</mat-icon> 
+      </button>
+      <mat-menu #menu="matMenu">
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
