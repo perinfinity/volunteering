@@ -15,6 +15,7 @@ export const routes: Routes = [
     {path: 'volunteering/opportunities/:id', component: OpportunityDetailComponent},
     {path: 'volunteering/opportunities/create', component: OpportunityCreateComponent},
     {path: 'register/organisation', component:RegisterComponent },
+    {path: 'login', component:LoginComponent},
     {path: 'register/user', component:RegisterComponent},
     {path: 'applications/:id', component: ApplicationDetailComponent},
     {path: 'applications', component: ApplicationListComponent},
