@@ -33,3 +33,23 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 # Use Mockoon to mock the API
+
+# Running the App with Docker
+This project uses Docker to containerize your the application, making it easy to run in a different environment.
+
+- Docker: Make sure you have Docker installed and running on your system. You can download it from https://www.docker.com/get-started.
+
+## Instructions:
+
+Build the Docker Image:
+
+``docker build -t volunteering-ui .``
+
+## Run the Docker Container:
+
+``docker run -p 4200:4200 volunteering-ui``
+
+
+## Access the App:
+
+Open your web browser and go to http://localhost:4200.
