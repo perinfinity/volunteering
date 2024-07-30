@@ -1,0 +1,14 @@
+.whidh{
+    width: 40%;
+    height: auto;
+}
+.container{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    box-shadow: blue 3px 3px 7px;
+    
+}
