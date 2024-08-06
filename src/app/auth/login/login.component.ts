@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserModule } from '../../user/user.module';
+
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
+import { UserLogin } from '../../models/user-login.model';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit{
-  public user : UserModule = new UserModule();
+  public user : UserLogin = new UserLogin();
 
   public saveData(connectionForm : NgForm){
     console.log(connectionForm.form)
