@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'Rendez-vous utile' title`, () => {
+  it(`should have the 'volunteering-ui' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Rendez-vous utile');
+    expect(app.title).toEqual('volunteering-ui');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Trouver une mission de bénévolat');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, volunteering-ui');
   });
 });
