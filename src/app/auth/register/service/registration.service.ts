@@ -8,7 +8,7 @@ import { User } from '../../../models/user.model';
   providedIn: 'root'
 })
 export class RegistrationService {
-  private apiUrl = 'http://localhost:3000/api/auth/register';
+  private apiUrl = 'http://localhost:3001/api/auth/register';
 
   constructor(private http: HttpClient) { }
 
@@ -27,4 +27,5 @@ export class RegistrationService {
       updated_date : user.updated_at
     });
   }
+
 }
