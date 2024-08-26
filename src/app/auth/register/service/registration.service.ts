@@ -2,20 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../../../models/user.model';
+import { environment } from '../../../../environments/environment.development';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationService {
-  private apiUrl = 'http://localhost:3001/api/auth/register';
+  private apiUrl =  environment.apiUrl+"/api/auth/register";
 
   constructor(private http: HttpClient) { }
 
   register(user: User): Observable<any> {
     return this.http.post<any>(this.apiUrl, {
-      identifiant: user.id,
-      name: `${user.firstName} ${user.lastName}`,
+      //name: `${user.firstName} ${user.lastName}`,
+      firstName : user.firstName,
+      lastName : user.lastName,
       email: user.email,
       password: user.password,
       role: user.role,

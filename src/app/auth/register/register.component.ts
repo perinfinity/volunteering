@@ -20,6 +20,7 @@ function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null 
   return { 'match': true };
 }
 
+// Controle le nombre de mots entrer lors de la redaction du mot de passe
 function ratingRangeValidator(min: number, max: number): ValidatorFn {
   return (c: AbstractControl): { [key: string]: boolean } | null => {
     // Ajouter des opérateurs logiques pour la vérification
