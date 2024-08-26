@@ -29,5 +29,5 @@ export class RegistrationService {
       updated_date : user.updated_at
     });
   }
-
+ 
 }

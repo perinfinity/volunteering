@@ -20,16 +20,7 @@ function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null 
   return { 'match': true };
 }
 
-// Controle le nombre de mots entrer lors de la redaction du mot de passe
-function ratingRangeValidator(min: number, max: number): ValidatorFn {
-  return (c: AbstractControl): { [key: string]: boolean } | null => {
-    // Ajouter des opérateurs logiques pour la vérification
-    if (c.value !== null && (isNaN(c.value) || c.value < min || c.value > max)) {
-      return { 'rangeError': true };
-    }
-    return null;
-  };
-}
+
 
 @Component({
   selector: 'app-register',
@@ -66,7 +57,7 @@ export class RegisterComponent implements OnInit {
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', [Validators.required]]
       }, { validators: passwordMatcher }as AbstractControlOptions),
-      rating: [null, ratingRangeValidator(1, 5)]
+    
     });
 
     this.registerForm.get('email')?.valueChanges.pipe(debounceTime(1500)).subscribe(val => {
