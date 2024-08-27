@@ -23,10 +23,12 @@
     "@angular/platform-server": "^18.1.0",
     "@angular/router": "^18.1.0",
     "@angular/ssr": "^18.1.0",
+    "body-parser": "^1.20.2",
     "bootstrap": "^5.3.3",
-    "express": "^4.19.2",
+    "cors": "^2.8.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.3",
+    "uuid": "^10.0.0",
     "zone": "^0.3.4",
     "zone.js": "~0.14.3"
   },
@@ -44,5 +46,10 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.4.2"
-  }
+  },
+  "description": "This web-based application facilitates the creation and management of volunteer opportunities, allowing organizations to publish offers and volunteers to search for, apply to, and participate in these opportunities.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
