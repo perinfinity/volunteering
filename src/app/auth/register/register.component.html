@@ -80,15 +80,17 @@
                                 <label>Date de Naissance</label>
                                 <input type="date" class="form-control"
                                     formControlName="created_at"
-                                    [ngClass]="{'is-invalid': registerForm.get('created_at')?.touched 
-                                    && !registerForm.get('created_at')?.valid}"
+                                    [ngClass]="{'is-invalid': registerForm.get('created_at')?.touched && !registerForm.get('created_at')?.valid}"
                                 />
                                 <div class="invalid-feedback">
                                     <span *ngIf="registerForm.get('created_at')?.errors?.['required']">
                                         Date de naissance requise
                                     </span>
+                                    <span *ngIf="registerForm.get('created_at')?.errors?.['underage']">
+                                        Vous devez avoir au moins 15 ans.
+                                    </span>
                                 </div>
-                            </div>
+                              </div>
                         </div>
             
                         <div class="row">
@@ -132,9 +134,9 @@
                                     <input type="password" class="form-control"
                                         formControlName="confirmPassword"
                                         [ngClass]="{'is-invalid': 
-                                            registerForm.get('passwordGroup.confirmPassword')?.touched ||
-                                            registerForm.get('passwordGroup.confirmPassword')?.dirty && 
-                                            !registerForm.get('passwordGroup.confirmPassword')?.valid}"
+                                            (registerForm.get('passwordGroup.confirmPassword')?.touched || 
+                                            registerForm.get('passwordGroup.confirmPassword')?.dirty) && 
+                                            registerForm.get('passwordGroup')?.errors?.['match']}"
                                     />
                                     <div class="invalid-feedback">
                                         <span *ngIf="registerForm.get('passwordGroup.confirmPassword')?.errors?.['required']">
@@ -155,6 +157,13 @@
                                 Inscription
                             </button>
                         </div>
+                        <div *ngIf="confirmationMsg" class="confirmation-message">
+                            {{ confirmationMsg }}
+                          </div>
+                        
+                          <div *ngIf="errorMsg" class="error-message">
+                            {{ errorMsg }}
+                          </div>
                     </form>
                 </div>
             </div>

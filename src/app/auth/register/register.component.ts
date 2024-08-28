@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidatorFn,
-   Validators, FormGroup, AbstractControlOptions } from '@angular/forms';
+   Validators, FormGroup, AbstractControlOptions, 
+   ValidationErrors} from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 import { User } from '../../models/user.model';
 import { RegistrationService } from './service/registration.service';
@@ -20,7 +21,13 @@ function passwordMatcher(c: AbstractControl): { [key: string]: boolean } | null 
   return { 'match': true };
 }
 
+function ageValidator(control: AbstractControl): ValidationErrors | null {
+  const birthDate = new Date(control.value);
+  const today = new Date();
+  const minAgeDate = new Date(today.getFullYear() - 15, today.getMonth(), today.getDate());
 
+  return birthDate > minAgeDate ? { underage: true } : null;
+}
 
 @Component({
   selector: 'app-register',
@@ -33,6 +40,7 @@ export class RegisterComponent implements OnInit {
   public user: User = new User();
   public registerForm!: FormGroup;
   public errorMsg!: string;
+  public confirmationMsg! : string;
 
   private validationErrorsMessages = {
     required: 'Ce champ est requis',
@@ -52,7 +60,7 @@ export class RegisterComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.minLength(4)]],
       phone: ['', [Validators.required]],
       ville: ['', [Validators.required]],
-      created_at: ['', [Validators.required]],
+      created_at: ['', [Validators.required, ageValidator]],
       passwordGroup: this.fb.group({
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', [Validators.required]]
@@ -70,8 +78,17 @@ export class RegisterComponent implements OnInit {
   public saveData(): void {
     if (this.registerForm.valid) {
       this.registrationService.register(this.registerForm.value).subscribe({
-        next: (response) => console.log('User registered successfully', response),
-        error:(err) => console.error('Error registering user', err),
+        next: (response) =>{
+           console.log('User registered successfully', response),
+           this.confirmationMsg = 'Votre inscription a été réussie !';
+          },
+        error:(err) =>{
+           console.error('Error registering user', err),
+           this.confirmationMsg = ' Erreur lors de l\'inscription. Veuillez réessayer.';
+           if (err.error) {
+            console.log('Détails de l\'erreur :', err.error);
+          }
+        },
       });
     }
     console.log(this.registerForm);
