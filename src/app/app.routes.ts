@@ -8,12 +8,14 @@ import { OpportunityCreateComponent } from './opportunity/opportunity-create/opp
 import { ApplicationDetailComponent } from './application/application-detail/application-detail.component';
 import { ApplicationListComponent } from './application/application-list/application-list.component';
 import { NotificationListComponent } from './notification/notification-list/notification-list.component';
+import { OpportunityMyComponent } from './opportunity/opportunity-my/opportunity-my.component';
 
 export const routes: Routes = [
     {path: '', component: OpportunityListComponent},
     {path: 'volunteering/opportunities', component: OpportunityListComponent},
-    {path: 'volunteering/opportunities/:id', component: OpportunityDetailComponent},
     {path: 'volunteering/opportunities/create', component: OpportunityCreateComponent},
+    {path: 'volunteering/opportunities/my', component: OpportunityMyComponent},
+    {path: 'volunteering/opportunities/:id', component: OpportunityDetailComponent},
     {path: 'register/organisation', component:RegisterComponent },
     {path: 'login', component:LoginComponent},
     {path: 'register/user', component:RegisterComponent},

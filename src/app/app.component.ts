@@ -5,6 +5,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { OpportunityListComponent } from './opportunity/opportunity-list/opportunity-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { OpportunityCreateComponent } from './opportunity/opportunity-create/opportunity-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
@@ -15,7 +17,8 @@ import { RegisterComponent } from './auth/register/register.component';
     FooterComponent,
     OpportunityListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    OpportunityCreateComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
