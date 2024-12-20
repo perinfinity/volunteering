@@ -1,1 +1,55 @@
-<p>opportunity-create works!</p>
+<!-- opportunity-form.component.html -->
+<form [formGroup]="opportunityForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Title*</label>
+      <input id="title" formControlName="title">
+      <div *ngIf="opportunityForm.get('title')?.invalid && opportunityForm.get('title')?.touched">
+        Title is required (max 100 characters)
+      </div>
+    </div>
+  
+    <div>
+      <label for="description">Description*</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div *ngIf="opportunityForm.get('description')?.invalid && opportunityForm.get('description')?.touched">
+        Description is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="location">Location*</label>
+      <input id="location" formControlName="location">
+    </div>
+  
+    <div>
+      <label for="town">Town*</label>
+      <input id="town" formControlName="town">
+      <div *ngIf="opportunityForm.get('town')?.invalid && opportunityForm.get('town')?.touched">
+        Town is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="startDate">Start Date*</label>
+      <input type="date" id="startDate" formControlName="startDate">
+      <div *ngIf="opportunityForm.get('startDate')?.invalid && opportunityForm.get('startDate')?.touched">
+        Start date is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="endDate">End Date*</label>
+      <input type="date" id="endDate" formControlName="endDate">
+    </div>
+  
+    <div>
+      <label for="requirements">Requirements</label>
+      <textarea id="requirements" formControlName="requirements"></textarea>
+    </div>
+
+    <div [hidden]="errorMessage"></div>
+    <app-error [message]="errorMessage"></app-error>
+    <button type="submit">Submit</button>
+    
+  </form>
+  
